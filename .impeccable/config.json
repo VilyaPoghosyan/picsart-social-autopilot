@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "fraunces",
+        "createdAt": "2026-11-03T15:03:48.704Z",
+        "reason": "Brief (Vilya, 2026-11-03): same visual language as the proposal page, Fraunces display named explicitly"
+      }
+    ]
+  }
+}

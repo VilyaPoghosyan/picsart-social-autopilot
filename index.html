@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Social Autopilot, next</title>
+<meta name="description" content="The next version of the Social Autopilot prototype: each person connects their own Instagram and TikTok, approves where and when each reel goes, and gets a weekly report.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Same calm column as the first version's page: the film first, what is new, what is not on yet. */
+:root {
+  --bg: #F7F5F9; --surface: #FFFFFF; --ink: #17161C; --muted: #5F5D6B; --line: #E4E1EA;
+  --accent: #C4007A; --accent-ink: #FFFFFF; --ok: #1F7A4A; --off: #8A8796; --warn: #9A5B00;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #111016; --surface: #1A1920; --ink: #EEEDF2; --muted: #A6A3B3; --line: #2C2A35;
+    --accent: #FF5FB6; --accent-ink: #1A0710; --ok: #5FD394; --off: #77748A; --warn: #F2B35B; color-scheme: dark; }
+}
+* { box-sizing: border-box }
+html, body { margin: 0 }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--sans) }
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 48px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 36px }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px }
+h1 { font: 700 clamp(32px, 6vw, 52px)/1.05 var(--display); letter-spacing: -.02em; margin: 0 0 14px; text-wrap: balance }
+h1 em { font-style: normal; color: var(--accent) }
+h2 { font: 600 22px/1.25 var(--display); margin: 0 0 12px }
+p { margin: 0 0 10px; max-width: 64ch }
+.lead { font-size: 18px; color: var(--muted) }
+video { width: 100%; max-width: 100%; aspect-ratio: 16 / 10; display: block; border-radius: 14px; background: #000; border: 1px solid var(--line) }
+.cap { font-size: 13px; color: var(--muted); margin-top: 8px }
+.news { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px }
+.news li { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px 18px }
+.news b { display: block; font-weight: 600; margin-bottom: 2px }
+.news span { color: var(--muted); font-size: 15px }
+.tag { display: inline-block; font: 500 11px/1 var(--mono); letter-spacing: .04em; padding: 4px 7px; border-radius: 999px;
+  margin-left: 6px; vertical-align: 2px; background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok) }
+.tag.sim { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn) }
+ul.plain { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 64ch }
+.status { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 16px; justify-content: space-between }
+.state { display: flex; align-items: center; gap: 12px; min-width: 0 }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--off); flex: none }
+.status.is-on .dot { background: var(--ok); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 20%, transparent) }
+.state b { display: block; font-weight: 600 }
+.state span { color: var(--muted); font-size: 14px }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-ink); font: 600 16px/1 var(--sans); text-decoration: none; border: 0 }
+.btn[aria-disabled="true"] { background: var(--line); color: var(--muted); pointer-events: none }
+.btn:focus-visible, a:focus-visible, video:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+a { color: var(--accent) }
+.foot { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 16px }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <p class="eyebrow">Picsart · prototype · next version</p>
+    <h1>Social Autopilot. <em>Now with your own accounts and the numbers.</em></h1>
+    <p class="lead">The next version of the prototype. Each person connects their own Instagram and TikTok, chooses where and when every approved reel goes, and gets a weekly report that the agents learn from.</p>
+  </header>
+
+  <section aria-label="What is new, recorded">
+    <video src="film.mp4" poster="film-poster.jpg" controls playsinline preload="metadata"></video>
+    <p class="cap">1:55, recorded on 4 Nov 2026, with narration and sound. The connected Instagram account is real. After TikTok's sign-in page, the film uses practice accounts and simulated posts, marked "Simulated" on screen. The Reelo report shows real numbers.</p>
+  </section>
+
+  <section>
+    <h2>What is new</h2>
+    <ul class="news">
+      <li><b>Connect your own accounts <span class="tag">real</span></b><span>A Connect button on the Instagram and TikTok cards opens the platform's own sign-in. The password goes only to Instagram or TikTok; the app never sees it. Each person's accounts stay separate.</span></li>
+      <li><b>Approve with where, when and TikTok settings <span class="tag">real</span></b><span>Every finished reel waits for approval. The owner picks the platforms, the time and who can see it on TikTok. The AI label is always on.</span></li>
+      <li><b>A posting queue <span class="tag">real</span></b><span>Approved reels wait in a queue, and each card follows its reel to live, with a link to every post.</span></li>
+      <li><b>A weekly report <span class="tag sim">simulated in the film</span></b><span>Views, followers, the best and the weakest reel, and the cost per post. The agents suggest changes; the owner accepts or rejects each one, and the next week's plan follows.</span></li>
+      <li><b>One page for every channel <span class="tag">real</span></b><span>Posts made, posted, views and credits, side by side.</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Not switched on yet</h2>
+    <ul class="plain">
+      <li>Automatic posting to people's own accounts. Approving puts a reel in the queue; nothing goes out by itself.</li>
+      <li>Stats from people's own accounts come once posting is on. The film shows simulated numbers, and real ones from Picsart's Reelo channel.</li>
+      <li>Like the first version, it runs on one Mac, so it opens only while it says online below.</li>
+    </ul>
+  </section>
+
+  <section class="status" id="status" aria-live="polite">
+    <div class="state">
+      <span class="dot" aria-hidden="true"></span>
+      <div><b id="state-title">Checking…</b><span id="state-text">Looking for this version.</span></div>
+    </div>
+    <a class="btn" id="open" href="#" aria-disabled="true">Open the next version</a>
+  </section>
+
+  <p>The first version, with the recorded run from brief to finished reels: <a href="https://vilyapoghosyan.github.io/social-autopilot/">vilyapoghosyan.github.io/social-autopilot</a></p>
+
+  <p class="foot">A prototype by Vilya Poghosyan. Made with Picsart.</p>
+</main>
+<script>
+(async () => {
+  const box = document.getElementById("status");
+  const title = document.getElementById("state-title");
+  const text = document.getElementById("state-text");
+  const open = document.getElementById("open");
+  const offline = (why) => {
+    box.classList.remove("is-on");
+    title.textContent = "Not open right now";
+    text.textContent = why;
+    open.setAttribute("aria-disabled", "true");
+    open.removeAttribute("href");
+  };
+  try {
+    const s = await (await fetch("server.json?t=" + Date.now(), { cache: "no-store" })).json();
+    if (!s.url) return offline("This version opens when Vilya starts it. The film above shows it.");
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 8000);
+    const r = await fetch(s.url + "/healthz", { cache: "no-store", signal: ctl.signal });
+    clearTimeout(timer);
+    if (!r.ok) throw new Error("not ok");
+    box.classList.add("is-on");
+    title.textContent = "Online";
+    text.textContent = "Ready to use.";
+    open.href = s.url + "/";
+    open.removeAttribute("aria-disabled");
+  } catch (e) {
+    offline("It is not answering. It may be restarting; try again in a minute.");
+  }
+})();
+</script>
+</body>
+</html>
