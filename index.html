@@ -60,7 +60,8 @@ p { margin: 0 0 10px; max-width: 64ch }
 .btn[aria-disabled="true"] { background: var(--surface-2); color: var(--faint); pointer-events: none }
 .how { border-top: 1px solid var(--line); padding-top: 18px; display: grid; gap: 14px;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) }
-.how h3 { font: 600 15px/1.3 var(--ui); margin: 0 0 6px; color: var(--ink) }
+.how h3 { font: 600 19px/1.3 var(--ui); margin: 0 0 6px; color: var(--ink) }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0 }
 .how p { font-size: 15px; color: var(--muted); margin: 0 }
 code { font: 500 13.5px/1.5 var(--code); color: var(--cream); background: var(--sunk); border: 1px solid var(--line-2);
   border-radius: 8px; padding: 2px 7px; white-space: nowrap }
@@ -105,7 +106,8 @@ a { color: var(--accent) }
     <p class="lead">Connect your Instagram and TikTok, describe your channel in a few lines, and Picsart's agents plan, make and quality-check every reel. You approve where and when each one goes, and a weekly report shapes the next plan.</p>
   </header>
 
-  <section class="open" id="status" aria-labelledby="state-title">
+  <section class="open" id="status" aria-labelledby="open-h">
+    <h2 class="sr-only" id="open-h">Open the app</h2>
     <div class="open-row" aria-live="polite">
       <div class="state">
         <span class="dot" aria-hidden="true"></span>
